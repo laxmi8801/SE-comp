@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+      <h3>Users (<a href = "{{ url_for('new') }}">Add user
+         </a>)</h3>
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>email</th>
+               <th>Address</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for user in users %}
+               <tr>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.addr }}</td>
+      
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>
